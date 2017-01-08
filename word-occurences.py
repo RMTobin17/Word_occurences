@@ -7,17 +7,36 @@ def load_content(filename):
 
 def load_dictionary(content):
     my_list = content.split()
-    strip_duplicates(my_list)
-
-def strip_duplicates(my_list):
+##  list_words(my_list)
+    dictionary = dict()
+    count = len(my_list)
+    while count > 0:
+        count = count -1
+        word = my_list[count]
+        if word in dictionary:
+            occurence = dictionary[word]
+            occurence = occurence +1
+            dictionary[word] = occurence
+            print("Yes", word, occurence)
+        else:
+            print("No", word)
+            dictionary = {word:'1'}
+            dictionary[word] = 1
+    return dictionary
+        
+        
+def list_words(my_list):
     count = len(my_list)
     while count > 0:
         count = count -1
         word = my_list[count]
         print (word)
+        return 
 
 def analyze_content(content):
-    load_dictionary(content)
+    dictionary = load_dictionary(content)
+    print (dictionary)
     
 content = load_content(filename)
 analyze_content(content)
+ 
