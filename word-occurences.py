@@ -7,7 +7,7 @@ def load_content(filename):
 
 def load_dictionary(content):
     my_list = content.split()
-##  list_words(my_list)
+    list_words(my_list)
     dictionary = dict()
     count = len(my_list)
     while count > 0:
@@ -17,10 +17,9 @@ def load_dictionary(content):
             occurence = dictionary[word]
             occurence = occurence +1
             dictionary[word] = occurence
-            print("Yes", word, occurence)
+##          print("Yes", word, occurence)
         else:
-            print("No", word)
-            dictionary = {word:'1'}
+##          print("No", word)
             dictionary[word] = 1
     return dictionary
         
@@ -30,12 +29,16 @@ def list_words(my_list):
     while count > 0:
         count = count -1
         word = my_list[count]
-        print (word)
-        return 
+        if word.isalpha() is False:
+            print(word)
+##      print (word)
+        return
 
 def analyze_content(content):
     dictionary = load_dictionary(content)
-    print (dictionary)
+##    for k,v in dictionary.items():
+##        print(k, v)
+##      print(dictionary)   
     
 content = load_content(filename)
 analyze_content(content)
